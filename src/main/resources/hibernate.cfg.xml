@@ -8,6 +8,8 @@
 		<property name="connection.password">postgres</property>
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="swow_sql">true</property>
-		<property name="hbm2ddl.auto">validate</property>
+		<property name="hbm2ddl.auto">create</property>
+		
+		<mapping resource="user.cfg.xml"/>
 	</session-factory>
 </hibernate-configuration>
