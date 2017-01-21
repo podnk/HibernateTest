@@ -1,43 +1,32 @@
-package main;
+package models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-/*
 import java.util.HashSet;
 import java.util.Set;
-*/
 
 @Entity
 @Table (name = "roles")
-public class Roles
+public class Roles extends Model
 {
-	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	@Column (name = "id")
-	private Long id;
-	
+	private static final long serialVersionUID = 432439740745232539L;
+
 	@Column (name = "title")
 	private String title;
 	
-	//private Set<Accounts> accounts = new HashSet<Accounts>();
+	@ManyToMany (mappedBy = "roles")
+	private Set<Accounts> accounts = new HashSet<Accounts>();
 	
 	public Roles()
 	{
-		
+		super();
 	}
-
-	public Long getId()
+	
+	public Roles(long id)
 	{
-		return id;
-	}
-
-	public void setId(Long id)
-	{
-		this.id = id;
+		super(id);
 	}
 
 	public String getTitle()
@@ -50,7 +39,7 @@ public class Roles
 		this.title = title;
 	}
 
-	/*public Set<Accounts> getAccounts()
+	public Set<Accounts> getAccounts()
 	{
 		return accounts;
 	}
@@ -58,5 +47,5 @@ public class Roles
 	public void setAccounts(Set<Accounts> accounts)
 	{
 		this.accounts = accounts;
-	}*/
+	}
 }

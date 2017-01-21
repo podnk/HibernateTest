@@ -10,7 +10,7 @@
 		<property name="swow_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
 		
-		<mapping class="main.Accounts"/>
-		<mapping class="main.Roles"/>
+		<mapping class="models.Accounts"/>
+		<mapping class="models.Roles"/>
 	</session-factory>
 </hibernate-configuration>

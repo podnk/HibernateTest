@@ -1,28 +1,20 @@
-package main;
+package models;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-/*
 import java.util.HashSet;
 import java.util.Set;
-*/
 
 @Entity
 @Table (name = "accounts")
-public class Accounts implements Serializable
+public class Accounts extends Model
 {
-	private static final long serialVersionUID = 1528553623483700053L;
-	
-	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
-	@Column (name = "id")
-	private long id;
-	
+	private static final long serialVersionUID = 632481490974540816L;
+
 	@Column (name = "login", length = 25, unique = true)
 	private String login;
 	
@@ -32,27 +24,20 @@ public class Accounts implements Serializable
 	@Column (name = "email", unique = true)
 	private String email;
 	
-	//private Set<Roles> role = new HashSet<Roles>();
-	
+	@ManyToMany
+	@JoinTable (name = "accounts_roles", 
+		joinColumns = {@JoinColumn (name = "accounts_id")}, 
+		inverseJoinColumns = {@JoinColumn (name = "roles_id")})
+	private Set<Roles> roles = new HashSet<Roles>();
 	
 	public Accounts()
 	{
-		
+		super();
 	}
 	
-	public Accounts(long idLong)
+	public Accounts(long id)
 	{
-		
-	}
-
-	public long getId()
-	{
-		return id;
-	}
-
-	public void setId(long id)
-	{
-		this.id = id;
+		super(id);
 	}
 
 	public String getLogin()
@@ -85,13 +70,13 @@ public class Accounts implements Serializable
 		this.email = email;
 	}
 
-//	public Set<Roles> getRole()
-//	{
-//		return role;
-//	}
-//
-//	public void setRole(Set<Roles> role)
-//	{
-//		this.role = role;
-//	}
+	public Set<Roles> getRoles()
+	{
+		return roles;
+	}
+
+	public void setRoles(Set<Roles> roles)
+	{
+		this.roles = roles;
+	}
 }
