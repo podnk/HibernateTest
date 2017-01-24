@@ -48,5 +48,10 @@ public class Product extends Model
 		this.price = price;
 	}
 	
+	@Override
+	public String toString()
+	{
+		return super.getId() + " - " + title + " - " + price;
+	}
 	
 }
