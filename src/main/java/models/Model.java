@@ -14,12 +14,15 @@ public abstract class Model implements Serializable
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.AUTO)
-	@Column (name = "id")
-	private long id;
+	@Column (name = "id", unique = true, nullable = false)
+	private Integer id;
 	
-	public Model(){}
+	public Model()
+	{
+		
+	}
 	
-	public Model(long id)
+	public Model(Integer id)
 	{
 		this.id = id;
 	}
@@ -29,7 +32,7 @@ public abstract class Model implements Serializable
 		return id;
 	}
 
-	public void setId(long id)
+	public void setId(Integer id)
 	{
 		this.id = id;
 	}

@@ -23,7 +23,7 @@ public class Product extends Model
 		super();
 	}
 	
-	public Product(long id)
+	public Product(Integer id)
 	{
 		super(id);
 	}

@@ -24,7 +24,7 @@ public class Roles extends Model
 		super();
 	}
 	
-	public Roles(long id)
+	public Roles(Integer id)
 	{
 		super(id);
 	}

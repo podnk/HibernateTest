@@ -13,7 +13,7 @@ import java.util.Set;
 @Table (name = "accounts")
 public class Accounts extends Model
 {
-	private static final long serialVersionUID = 632481490974540816L;
+	private static final long serialVersionUID = 5309388339715692260L;
 
 	@Column (name = "login", length = 25, unique = true)
 	private String login;
@@ -35,7 +35,7 @@ public class Accounts extends Model
 		super();
 	}
 	
-	public Accounts(long id)
+	public Accounts(Integer id)
 	{
 		super(id);
 	}
