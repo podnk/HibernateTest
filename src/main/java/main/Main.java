@@ -1,31 +1,27 @@
 package main;
 
 import org.hibernate.Session;
-import main.GetPassword;
 import org.hibernate.SessionFactory;
+import org.hibernate.type.StringType;
+
+import models.Accounts;
 
 public class Main
 {
+	static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	static Session session = sessionFactory.openSession();
+	
 	public static void main(String[] args)
 	{
-		try
-		{
-			session.beginTransaction();
-			
-			
-			
-			session.getTransaction().commit();
-		}
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
-		finally 
-		{
-			session.close();
-			sessionFactory.close();
-		}
+		session.beginTransaction();
 		
+		String sql = "select id from public.accounts where login = log116";
+		
+		String pass = session.createSQLQuery(sql).
+				addScalar("login", StringType.INSTANCE);
+		
+		session.close();
+		sessionFactory.close();
 	}
 }
 
@@ -33,6 +29,7 @@ public class Main
 // получение данных
 
 /*
+ 
  
 
 

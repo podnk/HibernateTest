@@ -39,6 +39,14 @@ public class Accounts extends Model
 	{
 		super(id);
 	}
+	
+	public Accounts(String login, String password, String email)
+	{
+		super();
+		this.login = login;
+		this.password = password;
+		this.email = email;
+	}
 
 	public String getLogin()
 	{
