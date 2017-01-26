@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action="" method="post">
+	<form action="registerServlet" method="post">
 		Имя: 		<input type="text" name="name"><br/>
 		Фамилия: 	<input type="text" name="surname"><br/>
 		Дата рождения: <input type="date" name="calendar"><br/>

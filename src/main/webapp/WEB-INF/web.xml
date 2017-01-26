@@ -10,9 +10,19 @@
   	<servlet-class>servlets.SelectServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<servlet-class>servlets.RegisterServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>SelectServlet</servlet-name>
   	<url-pattern>/selectPage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/registerServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>
