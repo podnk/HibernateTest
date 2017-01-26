@@ -11,14 +11,9 @@
 	<form action="registerServlet" method="post">
 		Имя: 		<input type="text" name="name"><br/>
 		Фамилия: 	<input type="text" name="surname"><br/>
-		Дата рождения: <input type="date" name="calendar"><br/>
 		Email:		<input type="text" name="email"><br/>
 		Логин: 		<input type="text" name="loginReg"><br/>
 		Пароль: 	<input type="password" name="passwordReg"><br/>
-		Пол:	<select name="sex">
-					<option>Мужской</option>
-					<option>Женский</option>
-				</select><br/>
 		Получать новостную рассылку: <input type="checkbox" name="news" value="news"><Br>
 		Я прочел и согласен с условиями <a href="devilsContract.txt">пользовательского соглашения:</a>
 		<input type="checkbox" name="licence" value="licence"><Br>

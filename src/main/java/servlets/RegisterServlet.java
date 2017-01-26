@@ -10,15 +10,13 @@ public class RegisterServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -1451723899712538224L;
 	
-	private static String name = "";
-	private static String surname = "";
-	private static String email = "";
-	private static String login = "";
-	private static String password = "";
-	private static String birhday = "";
-	// private static boolean maleSex = true; // нужно решить проблему!
+	private static String name;
+	private static String surname;
+	private static String email;
+	private static String login;
+	private static String password;
 	private static boolean noNews = true;
-	private static boolean licenceAccepted = true;
+	private static boolean licenseDenied = true;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
@@ -32,19 +30,8 @@ public class RegisterServlet extends HttpServlet
 		email = req.getParameter("email");
 		login = req.getParameter("loginReg");
 		password = req.getParameter("passwordReg");
-		birhday = req.getParameter("calendar");
-		// maleSex = req.getParameter("news") != null;
 		noNews = req.getParameter("news") != null;
-		licenceAccepted = req.getParameter("licence") != null;
-		
-		System.out.println(name);
-		System.out.println(surname);
-		System.out.println(email);
-		System.out.println(login);
-		System.out.println(password);
-		System.out.println(birhday);
-		System.out.println(noNews);
-		System.out.println(licenceAccepted);
+		licenseDenied = req.getParameter("license") != null;
 	}
 	
 	@Override
@@ -104,16 +91,6 @@ public class RegisterServlet extends HttpServlet
 	public static void setPassword(String password)
 	{
 		RegisterServlet.password = password;
-	}
-
-	public static String getBirhday()
-	{
-		return birhday;
-	}
-
-	public static void setBirhday(String birhday)
-	{
-		RegisterServlet.birhday = birhday;
 	}
 
 	public static long getSerialversionuid()

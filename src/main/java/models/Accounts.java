@@ -24,6 +24,18 @@ public class Accounts extends Model
 	@Column (name = "email", unique = true)
 	private String email;
 	
+	@Column (name = "name", unique = false, length = 25)
+	private String name;
+	
+	@Column (name = "surname", unique = false, length = 25)
+	private String surname;
+	
+	@Column (name = "no_news")
+	private boolean noNews;
+	
+	@Column (name = "license_denied")
+	private boolean licenseDenied;
+	
 	@ManyToMany
 	@JoinTable (name = "accounts_roles", 
 		joinColumns = {@JoinColumn (name = "accounts_id")}, 
