@@ -4,4 +4,15 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <servlet>
+  	<servlet-name>SelectServlet</servlet-name>
+  	<servlet-class>servlets.SelectServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>SelectServlet</servlet-name>
+  	<url-pattern>/selectPage</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
