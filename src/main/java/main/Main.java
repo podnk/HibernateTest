@@ -1,17 +1,11 @@
 package main;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import models.Accounts;
-import servlets.RegisterServlet;
-
 public class Main
 {
 	
 	public static void main(String[] args)
 	{
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		/*SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 
 		RegisterServlet rs = new RegisterServlet();
@@ -20,7 +14,7 @@ public class Main
 		session.save(rs.getAccount());
 		session.getTransaction().commit();
 		session.close();
-		sessionFactory.close();
+		sessionFactory.close();*/
 	}
 }
 

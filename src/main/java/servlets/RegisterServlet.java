@@ -16,8 +16,6 @@ public class RegisterServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -1451723899712538224L;
 	
-	static boolean isTransactionEnded = false;
-	
 	private String name;
 	private String surname;
 	private String email;
@@ -25,35 +23,35 @@ public class RegisterServlet extends HttpServlet
 	private String password;
 	private boolean noNews = true;
 	private boolean licenseDenied = true;
-	private Object account;
+	//private Object account;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException
 	{
-		req.setCharacterEncoding("UTF-8");
-		resp.setCharacterEncoding("UTF-8");
-		
-		name = req.getParameter("name");
-		surname = req.getParameter("surname");
-		email = req.getParameter("email");
-		login = req.getParameter("loginReg");
-		password = req.getParameter("passwordReg");
-		noNews = req.getParameter("news") != null;
-		licenseDenied = req.getParameter("license") != null;
-		
-		Accounts acc = new Accounts();
-		acc.setName(name);
-		acc.setSurname(surname);
-		acc.setEmail(email);
-		acc.setLogin(login);
-		acc.setPassword(password);
-		acc.setNoNews(noNews);
-		acc.setLicenseDenied(licenseDenied);
-		
 		if(req.getParameter("finishReg") != null)
 		{
-			setAccount(acc);
+			//setAccount(acc);
+			
+			req.setCharacterEncoding("UTF-8");
+			resp.setCharacterEncoding("UTF-8");
+			
+			name = req.getParameter("name");
+			surname = req.getParameter("surname");
+			email = req.getParameter("email");
+			login = req.getParameter("loginReg");
+			password = req.getParameter("passwordReg");
+			noNews = req.getParameter("news") != null;
+			licenseDenied = req.getParameter("license") != null;
+			
+			Accounts acc = new Accounts();
+			acc.setName(name);
+			acc.setSurname(surname);
+			acc.setEmail(email);
+			acc.setLogin(login);
+			acc.setPassword(password);
+			acc.setNoNews(noNews);
+			acc.setLicenseDenied(licenseDenied);
 		}
 	}
 	
@@ -133,7 +131,7 @@ public class RegisterServlet extends HttpServlet
 	{
 		this.licenseDenied = licenseDenied;
 	}
-
+/*
 	public boolean isTransactionEnded()
 	{
 		return isTransactionEnded;
@@ -158,5 +156,5 @@ public class RegisterServlet extends HttpServlet
 	{
 		return account;
 	}
-	
+	*/
 }
