@@ -30,7 +30,7 @@ public class RegisterServlet extends ForwardServlet
 		
 		if (req.getParameter("finishReg") != null)
 		{
-			super.forward("/index.jsp", req, resp);
+			
 		}
 	}
 	
@@ -42,7 +42,6 @@ public class RegisterServlet extends ForwardServlet
 	}
 
 	
-	// Геттеры и Сеттеры
 	
 	public String getName()
 	{

@@ -9,16 +9,12 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		// Подключение к БД
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		RegisterServlet rs = new RegisterServlet();
 		
-		// Начало транзакции
 		session.beginTransaction();
 		
-		// Создание объекта класса Аккаунта и занесение значений
-		// из RegisterServlet
 		Accounts acc = new Accounts();
 		acc.setName(rs.getName());
 		acc.setSurname(rs.getSurname());
@@ -26,11 +22,9 @@ public class Main
 		acc.setLogin(rs.getLogin());
 		acc.setPassword(rs.getPassword());
 		
-		// Сохранение аккаунта и передача его объекта в БД
-		session.save(acc);					// тут NullPointerException
+		session.save(acc);
 		session.getTransaction().commit();
 		
-		// Закрытие сессии
 		session.close();
 		sessionFactory.close();
 	}
