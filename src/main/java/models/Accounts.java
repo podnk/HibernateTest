@@ -99,4 +99,44 @@ public class Accounts extends Model
 	{
 		this.roles = roles;
 	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getSurname()
+	{
+		return surname;
+	}
+
+	public void setSurname(String surname)
+	{
+		this.surname = surname;
+	}
+
+	public boolean isNoNews()
+	{
+		return noNews;
+	}
+
+	public void setNoNews(boolean noNews)
+	{
+		this.noNews = noNews;
+	}
+
+	public boolean isLicenseDenied()
+	{
+		return licenseDenied;
+	}
+
+	public void setLicenseDenied(boolean licenseDenied)
+	{
+		this.licenseDenied = licenseDenied;
+	}
 }

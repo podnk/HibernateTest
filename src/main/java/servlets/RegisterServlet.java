@@ -6,18 +6,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import main.HibernateUtil;
+import models.Accounts;
+
 public class RegisterServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -1451723899712538224L;
 	
-	private static String name;
-	private static String surname;
-	private static String email;
-	private static String login;
-	private static String password;
-	private static boolean noNews = true;
-	private static boolean licenseDenied = true;
-
+	static boolean isTransactionEnded = false;
+	
+	private String name;
+	private String surname;
+	private String email;
+	private String login;
+	private String password;
+	private boolean noNews = true;
+	private boolean licenseDenied = true;
+	private Object account;
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException
@@ -32,6 +41,20 @@ public class RegisterServlet extends HttpServlet
 		password = req.getParameter("passwordReg");
 		noNews = req.getParameter("news") != null;
 		licenseDenied = req.getParameter("license") != null;
+		
+		Accounts acc = new Accounts();
+		acc.setName(name);
+		acc.setSurname(surname);
+		acc.setEmail(email);
+		acc.setLogin(login);
+		acc.setPassword(password);
+		acc.setNoNews(noNews);
+		acc.setLicenseDenied(licenseDenied);
+		
+		if(req.getParameter("finishReg") != null)
+		{
+			setAccount(acc);
+		}
 	}
 	
 	@Override
@@ -41,60 +64,99 @@ public class RegisterServlet extends HttpServlet
 		super.doPost(req, resp);
 	}
 
-// Setters and Getters block //////////////////////////////////////////////
-	
-	public static String getName()
+	public String getName()
 	{
 		return name;
 	}
 
-	public static void setName(String name)
+	public void setName(String name)
 	{
-		RegisterServlet.name = name;
+		this.name = name;
 	}
 
-	public static String getSurname()
+	public String getSurname()
 	{
 		return surname;
 	}
 
-	public static void setSurname(String surname)
+	public void setSurname(String surname)
 	{
-		RegisterServlet.surname = surname;
+		this.surname = surname;
 	}
 
-	public static String getEmail()
+	public String getEmail()
 	{
 		return email;
 	}
 
-	public static void setEmail(String email)
+	public void setEmail(String email)
 	{
-		RegisterServlet.email = email;
+		this.email = email;
 	}
 
-	public static String getLogin()
+	public String getLogin()
 	{
 		return login;
 	}
 
-	public static void setLogin(String login)
+	public void setLogin(String login)
 	{
-		RegisterServlet.login = login;
+		this.login = login;
 	}
 
-	public static String getPassword()
+	public String getPassword()
 	{
 		return password;
 	}
 
-	public static void setPassword(String password)
+	public void setPassword(String password)
 	{
-		RegisterServlet.password = password;
+		this.password = password;
 	}
 
-	public static long getSerialversionuid()
+	public boolean isNoNews()
 	{
-		return serialVersionUID;
+		return noNews;
 	}
+
+	public void setNoNews(boolean noNews)
+	{
+		this.noNews = noNews;
+	}
+
+	public boolean isLicenseDenied()
+	{
+		return licenseDenied;
+	}
+
+	public void setLicenseDenied(boolean licenseDenied)
+	{
+		this.licenseDenied = licenseDenied;
+	}
+
+	public boolean isTransactionEnded()
+	{
+		return isTransactionEnded;
+	}
+
+	public void setTransactionEnded(boolean isTransactionEnded)
+	{
+		this.isTransactionEnded = isTransactionEnded;
+	}
+	
+	public static boolean letCloseTransaction()
+	{
+		return true;
+	}
+	
+	public void setAccount(Object account)
+	{
+		this.account = account;
+	}
+
+	public Object getAccount()
+	{
+		return account;
+	}
+	
 }
