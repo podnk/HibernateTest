@@ -11,9 +11,11 @@ public class ForwardServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 7396539970228569232L;
 	
-	public void forward(String forwardTo, HttpServletRequest req, HttpServletResponse resp)
+	public void forward(String forwardTo, 
+			HttpServletRequest req, HttpServletResponse resp)
 	{
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(forwardTo);
+		RequestDispatcher requestDispatcher = getServletContext().
+				getRequestDispatcher(forwardTo);
 		
 		try
 		{

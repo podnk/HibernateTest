@@ -14,9 +14,11 @@
 		Email:		<input type="text" name="email"><br/>
 		Логин: 		<input type="text" name="loginReg"><br/>
 		Пароль: 	<input type="password" name="passwordReg"><br/>
-		Получать новостную рассылку: <input type="checkbox" name="news" value="news"><Br>
-		Я прочел и согласен с условиями <a href="devilsContract.txt">пользовательского соглашения:</a>
-		<input type="checkbox" name="license" value="license"><Br>
+		<!--  
+			Получать новостную рассылку: <input type="checkbox" name="news" value="news"><Br>
+			Я прочел и согласен с условиями <a href="devilsContract.txt">пользовательского соглашения:</a>
+			<input type="checkbox" name="license" value="license"><Br>
+		-->
 		<input type="submit" name="finishReg" value="Зарегистрироваться"><br/>
 	</form><br/>(все поля являются обязательными для заполнения)<br/>
 	

@@ -11,7 +11,6 @@
 		<property name="hbm2ddl.auto">update</property>
 		
 		<mapping class="models.Accounts"/>
-		<mapping class="models.Roles"/>
 		<mapping class="models.Model"/>
 		<mapping class="models.Order"/>
 		<mapping class="models.Product"/>

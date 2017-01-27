@@ -1,22 +1,64 @@
 package main;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import models.Accounts;
+import servlets.RegisterServlet;
+
 public class Main
 {
-	
 	public static void main(String[] args)
 	{
-		/*SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		// Подключение к БД
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
-
 		RegisterServlet rs = new RegisterServlet();
 		
-		session.beginTransaction();		
-		session.save(rs.getAccount());
+		// Начало транзакции
+		session.beginTransaction();
+		
+		// Создание объекта класса Аккаунта и занесение значений
+		// из RegisterServlet
+		Accounts acc = new Accounts();
+		acc.setName(rs.getName());
+		acc.setSurname(rs.getSurname());
+		acc.setEmail(rs.getEmail());
+		acc.setLogin(rs.getLogin());
+		acc.setPassword(rs.getPassword());
+		
+		// Сохранение аккаунта и передача его объекта в БД
+		session.save(acc);					// тут NullPointerException
 		session.getTransaction().commit();
+		
+		// Закрытие сессии
 		session.close();
-		sessionFactory.close();*/
+		sessionFactory.close();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,22 +74,14 @@ public class Main
 	
 	session.close();
 	sessionFactory.close();
-___________________________________________________________________________________
-
-	session.beginTransaction();
-		
-	Accounts acc1 = new Accounts();
-	acc1.setName(name);
-	acc1.setSurname(surname);
-	acc1.setEmail(email);
-	acc1.setLogin(login);
-	acc1.setPassword(password);
-	acc1.setNoNews(noNews);
-	acc1.setLicenseDenied(licenseDenied);
-		
-	session.save(acc1);
-	session.getTransaction().commit();
-	session.close();
-	session.getSessionFactory().close();
- */
-
+	
+	____________________________________________
+	
+	
+	Accounts acc = new Accounts();
+	acc.setName(rs.getName());
+	acc.setSurname(rs.getSurname());
+	acc.setEmail(rs.getEmail());
+	acc.setLogin(rs.getLogin());
+	acc.setPassword(rs.getPassword());
+*/

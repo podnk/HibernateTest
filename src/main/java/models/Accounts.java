@@ -2,12 +2,7 @@ package models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table (name = "accounts")
@@ -30,18 +25,6 @@ public class Accounts extends Model
 	@Column (name = "surname", unique = false, length = 25)
 	private String surname;
 	
-	@Column (name = "no_news")
-	private boolean noNews;
-	
-	@Column (name = "license_denied")
-	private boolean licenseDenied;
-	
-	@ManyToMany
-	@JoinTable (name = "accounts_roles", 
-		joinColumns = {@JoinColumn (name = "accounts_id")}, 
-		inverseJoinColumns = {@JoinColumn (name = "roles_id")})
-	private Set<Roles> roles = new HashSet<Roles>();
-	
 	public Accounts()
 	{
 		super();
@@ -52,14 +35,6 @@ public class Accounts extends Model
 		super(id);
 	}
 	
-	public Accounts(String login, String password, String email)
-	{
-		super();
-		this.login = login;
-		this.password = password;
-		this.email = email;
-	}
-
 	public String getLogin()
 	{
 		return login;
@@ -90,16 +65,6 @@ public class Accounts extends Model
 		this.email = email;
 	}
 
-	public Set<Roles> getRoles()
-	{
-		return roles;
-	}
-
-	public void setRoles(Set<Roles> roles)
-	{
-		this.roles = roles;
-	}
-
 	public String getName()
 	{
 		return name;
@@ -118,25 +83,5 @@ public class Accounts extends Model
 	public void setSurname(String surname)
 	{
 		this.surname = surname;
-	}
-
-	public boolean isNoNews()
-	{
-		return noNews;
-	}
-
-	public void setNoNews(boolean noNews)
-	{
-		this.noNews = noNews;
-	}
-
-	public boolean isLicenseDenied()
-	{
-		return licenseDenied;
-	}
-
-	public void setLicenseDenied(boolean licenseDenied)
-	{
-		this.licenseDenied = licenseDenied;
 	}
 }
