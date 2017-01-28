@@ -2,46 +2,72 @@ package main;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import models.Accounts;
 import servlets.RegisterServlet;
 
 public class Main
 {
+	public static boolean b = false;
+	
 	public static void main(String[] args) throws InterruptedException
 	{
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
+		RegisterServlet rs = new RegisterServlet();
 		
 			System.out.println(1);
-			System.out.println(RegisterServlet.getB());
-		while(RegisterServlet.b == false)
+			System.out.println(getB()); // тонна флагов
+			boolean b2 = Main.getB();
+			System.out.println(b2 + " b2 ");
+			
+		while(getB() == false)
 		{
-				System.out.println(RegisterServlet.getB());
+				System.out.println(getB());
 				System.out.println(2);
-			if (RegisterServlet.b == true)
+				
+			if (getB() == true)
 			{		
-					System.out.println(RegisterServlet.getB());
+					System.out.println(getB());
 					System.out.println(3);
+					
 				break;
 			}
-				System.out.println(RegisterServlet.getB());
+				System.out.println(getB());
 				System.out.println(4);
-			Thread.sleep(4000);
-				System.out.println(RegisterServlet.getB());
+				
+			Thread.sleep(1000);
+			
+				System.out.println(getB());
 				System.out.println(5);
-			continue;
+			// continue;
 		}
 			System.out.println(6);
+			
 		session.beginTransaction();
+		
 			System.out.println(7);
+			
 		session.save(RegisterServlet.getObjectToSave());
 		session.getTransaction().commit();
+		
 			System.out.println(8);
+			
 		session.close();
 		sessionFactory.close();
+		
 			System.out.println(9);
 	}
+	
+	public static boolean getB()
+	{
+		return b;
+	}
+	
+	public static void setB(boolean b)
+	{
+		Main.b = b;
+	}
 }
+
 
 
 

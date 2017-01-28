@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.Main;
 import models.Accounts;
 
 public class RegisterServlet extends HttpServlet
@@ -17,8 +18,6 @@ public class RegisterServlet extends HttpServlet
 	private String login;
 	private String password;
 	public static Object objectToSave;
-	
-	public static boolean b = false;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
@@ -46,9 +45,9 @@ public class RegisterServlet extends HttpServlet
 			acc.setPassword(password);
 			System.out.println(55);
 			setObjectToSave(acc);
-			System.out.println(getB());
-			setB(true);
-			System.out.println(getB());
+			System.out.println(Main.getB());
+			Main.setB(true);
+			System.out.println(Main.getB());
 			System.out.println(66);
 		}
 	}
@@ -121,18 +120,6 @@ public class RegisterServlet extends HttpServlet
 	{
 		RegisterServlet.objectToSave = objectToSave;
 	}
-
-	public static boolean getB()
-	{
-		return b;
-	}
-
-	public static void setB(boolean b)
-	{
-		RegisterServlet.b = b;
-	}
-	
-	
 	
 /*
 	public boolean isNoNews()
