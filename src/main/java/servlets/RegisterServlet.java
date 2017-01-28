@@ -2,18 +2,23 @@ package servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class RegisterServlet extends ForwardServlet
+import models.Accounts;
+
+public class RegisterServlet extends HttpServlet
 {
 	private static final long serialVersionUID = -3267914113129509611L;
-	
 	private String name;
 	private String surname;
 	private String email;
 	private String login;
 	private String password;
+	public static Object objectToSave;
+	
+	public boolean b = false;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
@@ -22,15 +27,22 @@ public class RegisterServlet extends ForwardServlet
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		
-		name = req.getParameter("name");
-		surname = req.getParameter("surname");
-		email = req.getParameter("email");
-		login = req.getParameter("loginReg");
-		password = req.getParameter("passwordReg");
-		
 		if (req.getParameter("finishReg") != null)
 		{
+			name = req.getParameter("name");
+			surname = req.getParameter("surname");
+			email = req.getParameter("email");
+			login = req.getParameter("loginReg");
+			password = req.getParameter("passwordReg");
 			
+			Accounts acc = new Accounts();
+			acc.setName(name);
+			acc.setSurname(surname);
+			acc.setEmail(email);
+			acc.setLogin(login);
+			acc.setPassword(password);
+			setObjectToSave(acc);
+			b = true;
 		}
 	}
 	
@@ -92,6 +104,16 @@ public class RegisterServlet extends ForwardServlet
 	{
 		this.password = password;
 	}
+
+	public static Object getObjectToSave()
+	{
+		return objectToSave;
+	}
+
+	public static void setObjectToSave(Object objectToSave)
+	{
+		RegisterServlet.objectToSave = objectToSave;
+	}
 	
 /*
 	public boolean isNoNews()
@@ -114,5 +136,7 @@ public class RegisterServlet extends ForwardServlet
 		this.licenseDenied = licenseDenied;
 	}
 */
+	
+	
 	
 }
