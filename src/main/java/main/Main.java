@@ -13,22 +13,29 @@ public class Main
 		Session session = sessionFactory.openSession();
 		
 		RegisterServlet rs = new RegisterServlet();
-		
+			//System.out.println(1);
 		while(rs.b == false)
 		{
+				//System.out.println(2);
 			if (rs.b == true)
 			{
+				//System.out.println(3);
 				break;
 			}
+				//System.out.println(4);
+			Thread.sleep(4000);
+				//System.out.println(5);
+			continue;
 		}
-		
+			//System.out.println(6);
 		session.beginTransaction();
-		
+			//System.out.println(7);
 		session.save(RegisterServlet.getObjectToSave());
 		session.getTransaction().commit();
-		
+			//System.out.println(8);
 		session.close();
 		sessionFactory.close();
+			//System.out.println(9);
 	}
 }
 
