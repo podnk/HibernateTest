@@ -18,31 +18,38 @@ public class RegisterServlet extends HttpServlet
 	private String password;
 	public static Object objectToSave;
 	
-	public boolean b = false;
+	public static boolean b = false;
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException
 	{
+		System.out.println(11);
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		
+		System.out.println(22);
 		if (req.getParameter("finishReg") != null)
 		{
+			System.out.println(33);
 			name = req.getParameter("name");
 			surname = req.getParameter("surname");
 			email = req.getParameter("email");
 			login = req.getParameter("loginReg");
 			password = req.getParameter("passwordReg");
 			
+			System.out.println(44);
 			Accounts acc = new Accounts();
 			acc.setName(name);
 			acc.setSurname(surname);
 			acc.setEmail(email);
 			acc.setLogin(login);
 			acc.setPassword(password);
+			System.out.println(55);
 			setObjectToSave(acc);
-			b = true;
+			System.out.println(getB());
+			setB(true);
+			System.out.println(getB());
+			System.out.println(66);
 		}
 	}
 	
@@ -114,6 +121,18 @@ public class RegisterServlet extends HttpServlet
 	{
 		RegisterServlet.objectToSave = objectToSave;
 	}
+
+	public static boolean getB()
+	{
+		return b;
+	}
+
+	public static void setB(boolean b)
+	{
+		RegisterServlet.b = b;
+	}
+	
+	
 	
 /*
 	public boolean isNoNews()
