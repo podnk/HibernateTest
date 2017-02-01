@@ -33,6 +33,7 @@ public class Accounts extends Model
 	public Accounts(String login, String password, String email, 
 			String name, String surname)
 	{
+		super();
 		this.name = name;
 		this.surname = surname;
 		this.email = email;

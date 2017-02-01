@@ -23,9 +23,11 @@ public class Product extends Model
 		super();
 	}
 	
-	public Product(Integer id)
+	public Product(String title, BigDecimal price)
 	{
-		super(id);
+		super();
+		this.title = title;
+		this.price = price;
 	}
 
 	public String getTitle()

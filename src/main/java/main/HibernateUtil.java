@@ -16,7 +16,7 @@ public class HibernateUtil
         } 
         catch (Throwable ex) 
         {
-            System.err.println("Initial SessionFactory creation failed." + ex);
+            System.err.println("Проблема с инициализацией SessionFactory." + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }

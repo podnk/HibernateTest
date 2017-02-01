@@ -37,9 +37,12 @@ public class Order extends Model
 		super();
 	}
 	
-	public Order(long id)
+	public Order(int orderCount, BigDecimal price, boolean status)
 	{
-		
+		super();
+		this.orderCount = orderCount;
+		this.price = price;
+		this.status = status;
 	}
 
 	public Accounts getAccount()

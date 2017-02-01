@@ -9,11 +9,11 @@
 <body>
 
 	<form action="registerServlet" method="post">
-		Имя: 		<input type="text" name="name"><br/>
-		Фамилия: 	<input type="text" name="surname"><br/>
-		Email:		<input type="text" name="email"><br/>
-		Логин: 		<input type="text" name="loginReg"><br/>
-		Пароль: 	<input type="password" name="passwordReg"><br/>
+		Имя: 		<input type="text" name="name" maxlength="25"> 				<br/>
+		Фамилия: 	<input type="text" name="surname" maxlength="25">			<br/>
+		Email:		<input type="text" name="email"> 							<br/>
+		Логин: 		<input type="text" name="loginReg" maxlength="25"> 			<br/>
+		Пароль: 	<input type="password" name="passwordReg" maxlength="25"> 	<br/>
 		<!--  
 			Получать новостную рассылку: <input type="checkbox" name="news" value="news"><Br>
 			Я прочел и согласен с условиями <a href="devilsContract.txt">пользовательского соглашения:</a>

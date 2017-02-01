@@ -2,6 +2,10 @@ package services;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Query;
 import models.Accounts;
 import main.HibernateUtil;
@@ -36,6 +40,7 @@ public class LoginService
 			@SuppressWarnings("rawtypes")
 			Query query = session.createQuery("from public.accounts where login='" 
 					+ login + "'");
+			
 			accounts = (Accounts)query.uniqueResult();
 			transaction.commit();
 		}
@@ -51,5 +56,36 @@ public class LoginService
 			session.close();
 		}
 		return accounts;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Accounts> getListOfAccounts()
+	{
+		List<Accounts> list  = new ArrayList<>();
+		Session session = HibernateUtil.openSession();
+		Transaction transaction = null;
+		
+		try
+		{
+			transaction = session.beginTransaction();
+			transaction.begin();
+			
+			list = session.createQuery("from public.accounts").list();
+			
+			transaction.commit();
+		}
+		catch (Exception ex)
+		{
+			if (transaction != null)
+			{
+				transaction.rollback();
+			}
+			ex.printStackTrace();
+		}
+		finally
+		{
+			session.close();
+		}
+		return list;
 	}
 }
