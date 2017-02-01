@@ -28,7 +28,7 @@ public class LoginService
 	
 	public Accounts getAccountByLogin(String login)
 	{
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		Accounts accounts = null;
 		
@@ -62,7 +62,7 @@ public class LoginService
 	public List<Accounts> getListOfAccounts()
 	{
 		List<Accounts> list  = new ArrayList<>();
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		
 		try

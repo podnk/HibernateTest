@@ -10,7 +10,7 @@ public class RegisterService
 {
 	public boolean register(Accounts account)
 	{
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		if(isUserExists(account))
 		{
@@ -44,7 +44,7 @@ public class RegisterService
 	@SuppressWarnings("rawtypes")
 	public boolean isUserExists(Accounts account)
 	{
-		Session session = HibernateUtil.openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = null;
 		
 		boolean result = false;

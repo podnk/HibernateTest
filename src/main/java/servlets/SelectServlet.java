@@ -19,7 +19,7 @@ public class SelectServlet extends ForwardServlet
 		}
 		else if (req.getParameter("register") != null)
 		{
-			super.forward("/register", req, resp);
+			super.forward("/registerPage.jsp", req, resp);
 		}
 		else if (req.getParameter("finishReg") != null) 
 		{
