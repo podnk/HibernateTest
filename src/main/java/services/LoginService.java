@@ -61,7 +61,7 @@ public class LoginService
 	@SuppressWarnings("unchecked")
 	public List<Accounts> getListOfAccounts()
 	{
-		List<Accounts> list  = new ArrayList<>();
+		List<Accounts> list  = new ArrayList<Accounts>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		
