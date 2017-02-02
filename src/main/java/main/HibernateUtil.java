@@ -1,23 +1,23 @@
 package main;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil 
 {
-	private static SessionFactory sessionFactory = null;
+	private static SessionFactory sessionFactory;
 
 	static 
 	{
-		System.out.println("HibernateUtil");
-		
-		Configuration cfg = new Configuration().configure();
-		
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
-				.applySettings(cfg.getProperties());
-		
-		sessionFactory = cfg.buildSessionFactory(builder.build());
+		try
+		{
+			Configuration configuration = new Configuration().configure();
+			sessionFactory = configuration.buildSessionFactory();
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
 	}
 
 	public static SessionFactory getSessionFactory()

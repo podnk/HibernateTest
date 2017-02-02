@@ -21,8 +21,8 @@
   </servlet>
   
   <servlet>
-  	<servlet-name>Account</servlet-name>
-  	<servlet-class>servlets.AccountsControllerServlet</servlet-class>
+  	<servlet-name>loginServlet</servlet-name>
+  	<servlet-class>servlets.LoginServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -41,8 +41,8 @@
   </servlet-mapping>
   
   <servlet-mapping>
-  	<servlet-name>Account</servlet-name>
-  	<url-pattern>/register</url-pattern>
+  	<servlet-name>loginServlet</servlet-name>
+  	<url-pattern>/loginPage</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>

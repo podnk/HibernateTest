@@ -15,15 +15,11 @@ public class SelectServlet extends ForwardServlet
 	{
 		if(req.getParameter("enter") != null)
 		{
-			super.forward("/accountPage.jsp", req, resp);
+			super.forward("/loginPage", req, resp);
 		}
 		else if (req.getParameter("register") != null)
 		{
 			super.forward("/registerPage.jsp", req, resp);
-		}
-		else if (req.getParameter("finishReg") != null) 
-		{
-			super.forward("/regConfirm.jsp", req, resp);
 		}
 	}
 	
